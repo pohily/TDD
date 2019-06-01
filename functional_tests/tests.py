@@ -115,5 +115,5 @@ class NewVisitorTest(LiveServerTestCase):
 
 
                
-        self.fail('Finish the test!')
+        #self.fail('Finish the test!')
         
