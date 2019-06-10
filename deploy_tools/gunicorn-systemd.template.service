@@ -3,9 +3,9 @@ Description=Gunicorn server for SITENAME
 
 [Service]
 Restart=on-failure
-User=Mika
+User=mika
 WorkingDirectory=/home/mika/sites/SITENAME/source
-ExecStart=/hpme/mika/sites/SITENAME/virtualenv/bin/gunicorn \
+ExecStart=/home/mika/sites/SITENAME/virtualenv/bin/gunicorn \
 	--bind unix:/tmp/SITENAME.socket \
 	superlists.wsgi:application
 
