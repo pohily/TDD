@@ -2,6 +2,7 @@ from django.test import TestCase
 from django.utils.html import escape
 
 from lists.models import Item, List
+from lists.forms import ItemForm
 
 class HomePageTest(TestCase):
 
@@ -39,6 +40,11 @@ class ListViewTest(TestCase):
         correct_list = List.objects.create()
         response = self.client.get(f'/lists/{correct_list.id}/')
         self.assertEqual(response.context['list'], correct_list)
+
+
+    def test_home_page_uses_item_form(self):
+        response = self.client.get('/')
+        self.assertIsInstance(response.context['form'], ItemForm)
 
 
     def test_can_save_a_POST_request(self):
