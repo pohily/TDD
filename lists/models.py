@@ -8,8 +8,15 @@ class List(models.Model):
 
 
 class Item(models.Model):
-    text = models.TextField(default='')
+    text = models.TextField(default='', unique=True)
     list = models.ForeignKey(List, on_delete=models.CASCADE, default=None)
+
+    class Meta:
+        unique_together = ['text', 'list']
+        ordering = ['id']
+
+    def __str__(self):
+        return self.text
 
 
         
