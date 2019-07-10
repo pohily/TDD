@@ -6,9 +6,9 @@ from lists.models import List
 
 User = get_user_model()
 
+
 def home_page(request):
     return render(request, 'home.html', {'form': ItemForm()})
-
 
 
 def new_list(request):

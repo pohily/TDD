@@ -4,6 +4,7 @@ import random
 
 REPO_URL = 'https://github.com/pohily/TDD'
 
+
 def deploy():
     site_folder = f'/home/{env.user}/sites/{env.host}'
     source_folder = site_folder + '/source'

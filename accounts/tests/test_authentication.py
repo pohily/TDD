@@ -5,6 +5,7 @@ from accounts.models import Token
 
 User = get_user_model()
 
+
 class AuthenticateTest(TestCase):
 
     def test_returns_None_if_no_such_token(self):
@@ -12,7 +13,6 @@ class AuthenticateTest(TestCase):
             'no-such-token'
         )
         self.assertIsNone(result)
-    
 
     def test_returns_new_user_with_correct_email_if_token_exists(self): 
         email = 'edith@example.com'
@@ -20,7 +20,6 @@ class AuthenticateTest(TestCase):
         user = PasswordlessAuthenticationBackend().authenticate(token.uid) 
         new_user = User.objects.get(email=email)
         self.assertEqual(user, new_user)
-
 
     def test_returns_existing_user_with_correct_email_if_token_exists(self): 
         email = 'edith@example.com'
@@ -39,7 +38,6 @@ class GetUserTest(TestCase):
             'edith@example.com'
         )
         self.assertEqual(found_user, desired_user)
-
 
     def test_returns_None_if_no_user_with_that_email(self): 
         self.assertIsNone(

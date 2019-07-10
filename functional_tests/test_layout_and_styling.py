@@ -4,7 +4,6 @@ from selenium.webdriver.common.keys import Keys
 from .base import FunctionalTest
 
 
-
 class LayoutAndStylingTest(FunctionalTest):
 
     @skip
