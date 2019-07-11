@@ -4,6 +4,7 @@ from .base import FunctionalTest
 from .list_page import ListPage
 from .my_lists_page import MyListsPage
 
+
 def quit_if_possible(browser): 
     try: browser.quit() 
     except: pass
@@ -35,7 +36,8 @@ class SharingTest(FunctionalTest):
         )
 
         # She shares her list.
-        # The page updates to say that it's shared with Oniciferous: list_page.share_list_with('oniciferous@example.com')
+        # The page updates to say that it's shared with Oniciferous: list_page.
+        # share_list_with('oniciferous@example.com')
         list_page.share_list_with('oniciferous@example.com')
         
         # Oniciferous now goes to the lists page with his browser
