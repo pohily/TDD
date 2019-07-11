@@ -11,7 +11,7 @@ class ListPage(object):
     def get_table_rows(self):
         return self.test.browser.find_elements_by_css_selector('#id_list_table tr')
 
-    @wait
+    """@wait
     def wait_for_row_in_list_table(self, item_text, item_number): 
         expected_row_text = f'{item_number}: {item_text}'
         rows = self.get_table_rows() 
@@ -25,7 +25,7 @@ class ListPage(object):
         self.get_item_input_box().send_keys(item_text) 
         self.get_item_input_box().send_keys(Keys.ENTER) 
         self.wait_for_row_in_list_table(item_text, new_item_no) 
-        return self
+        return self"""
 
     def get_share_box(self):
         return self.test.browser.find_element_by_css_selector(

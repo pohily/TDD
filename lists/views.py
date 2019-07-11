@@ -35,4 +35,10 @@ def my_lists(request, email):
     return render(request, 'my_lists.html', {'owner': owner})
 
 
+def share_list(request, list_id):
+    list_ = List.objects.get(id=list_id)
+    list_.shared_with.add(request.POST['sharee'])
+    return redirect(list_)
+
+
 

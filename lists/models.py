@@ -5,7 +5,14 @@ from django.conf import settings
 
 
 class List(models.Model):
-    owner = models.ForeignKey(settings.AUTH_USER_MODEL, blank=True, null=True, on_delete=models.SET_NULL)
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, 
+        blank=True, 
+        null=True, 
+        on_delete=models.SET_NULL
+    )
+    shared_with = models.ManyToManyField(
+        settings.AUTH_USER_MODEL, related_name='shared_lists'
+    )
 
     def get_absolute_url(self):
         return reverse('view_list', args=[self.id])
@@ -23,7 +30,10 @@ class List(models.Model):
 
 class Item(models.Model):
     text = models.TextField(default='')
-    list = models.ForeignKey(List, default=None, on_delete=models.SET_DEFAULT)
+    list = models.ForeignKey(List, 
+        default=None, 
+        on_delete=models.SET_DEFAULT
+    )
 
     class Meta:
         ordering = ('id',)
