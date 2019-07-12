@@ -16,11 +16,11 @@ class SharingTest(FunctionalTest):
         # Edith is a logged-in user 
         self.create_pre_authenticated_session('edith@example.com') 
         edith_browser = self.browser
-        #self.addCleanup(lambda: quit_if_possible(edith_browser))
+        self.addCleanup(lambda: quit_if_possible(edith_browser))
             
         # Her friend Oniciferous is also hanging out on the lists site
         oni_browser = webdriver.Firefox()
-        #self.addCleanup(lambda: quit_if_possible(oni_browser)) 
+        self.addCleanup(lambda: quit_if_possible(oni_browser)) 
         self.browser = oni_browser 
         self.create_pre_authenticated_session('oniciferous@example.com')
             
