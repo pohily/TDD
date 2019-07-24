@@ -19,9 +19,11 @@ from lists import urls as list_urls
 from accounts import views as accounts_views
 from accounts import urls as accounts_urls
 
+from lists.api import router
+
 urlpatterns = [
     url(r'^$', list_views.HomePageView.as_view(), name='home'),
     url(r'^lists/', include(list_urls)),
     url(r'^accounts/', include(accounts_urls)),
-    
+    url(r'^api/', include(router.urls)),
 ]
